@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>电商</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="lib/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+    <div class="lt">
+        <!-- 页面头部 -->
+        <header>
+            <div class="lt-title"><a href="#">黑马商城</a></div>
+            <div class="lt-head">
+                <a href="javascript:;" class="pull-left ">
+                    <span class="glyphicon glyphicon-align-justify icon_menu"></span>
+                </a>
+                <a href="javascript:;" class="pull-right">
+                    <span class="glyphicon glyphicon-log-out loginOut" data-toggle="modal" data-target="#logoutModal"></span>
+                </a>
+            </div>
+        </header>
+        <!-- 内容 -->
+        <section class="lt-content">
+            <!-- 侧边栏 -->
+            <div class="lt-nav body_bg">
+                <div class="user">
+                    <img src="images/default.png">
+                    <p>超级管理员</p>
+                </div>
+                <ul>
+                    <li>
+                        <a href="user.html">
+                            <span class="glyphicon glyphicon-user"></span>
+                            <span>用户管理</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="category">
+                            <span class="glyphicon glyphicon-th-list"></span>
+                            <span>分类管理</span>
+                        </a>
+                        <div class="child">
+                            <a href="./first.html" class="current">一级分类</a>
+                            <a href="./second.html">二级分类</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="shop.html">
+                            <span class="glyphicon glyphicon-tags"></span>
+                            <span>商品管理</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 主要内容 -->
+            <div class="lt-main  container-fluid">
+                <!-- 路径导航 -->
+                <ol class="breadcrumb">
+                    <li><a href="index.html">管理系统</a></li>
+                    <li class="active">分类管理</li>
+                    <li class="active">一级分类</li>
+                </ol>
+                <!-- 一级分类数据 -->
+                <button class="btn btn-default" data-toggle="modal" data-target="#addModal">添加一级分类</button>
+                <table class="table table-bordered text-center mt-10">
+                    <thead>
+                        <tr>
+                            <th>编号</th>
+                            <th>一级分类名称</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>涛涛馆</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- 分页父容器 -->
+                <div class="pull-right">
+                    <ul id="paginator"></ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- 模板 -->
+    <script type="text/html" id="tmp">
+        {{ each rows v i }}
+        <tr>
+            <td>{{ (page-1) * size + i + 1 }}</td>
+            <td>{{ v.categoryName }}</td>
+        </tr>
+        {{ /each }}
+    </script>
+    <!-- 登录退出的模态框,  配置 data-dismiss="modal" 可以关闭模态框 -->
+    <div class="modal fade" id="logoutModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <h4 class="modal-title">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="red"><i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 添加分类的模态框 -->
+    <div class="modal fade" id="addModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <h4 class="modal-title">添加分类</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-add" id="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="请输入一级分类" name="categoryName">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <!-- html5 新增 form 属性, 可以让表单外的按钮, 与表单关联起来(就相当于是写在了表单里面)-->
+                    <button type="submit" class="btn btn-primary" form="form">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+    <script src="lib/nprogress/nprogress.js"></script>
+    <script src="lib/artTemplate/template-web.js"></script>
+    <script src="lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+    <script src="js/common.js"></script>
+    <!-- <script src="js/login.js"></script> -->
+    <script src="js/first.js"></script>
+</body>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/category.css">
+</head>
+
+<body>
+    <div class="ltm-container">
+        <header>
+            <a href="#">
+                <i class="fa fa-home"></i>
+            </a>
+            乐淘云购
+            <a href="./search.html">
+                <i class="fa fa-search"></i>
+            </a>
+        </header>
+        <div class="ltm-main">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <div class="nav-list">
+                        <ul>
+                            <!-- <li>
+                                <a href="#">运动馆</a>
+                            </li> -->
+                        </ul>
+                    </div>
+                    <div class="cate-main">
+                        <ul>
+                            <!-- <li>
+                                <a href="#">
+                                    <img src="./images/brand1.png" alt="">
+                                    <p>耐克</p>
+                                </a>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <ul>
+                <li>
+                    <a href="./index.html">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li class="current">
+                    <a href="./category.html">
+                        <i class="fa fa-bars"></i>
+                        <span>分类页</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./cart.html">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>购物车</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./user.html">
+                        <i class="fa fa-user"></i>
+                        <span>用户中心</span>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+
+    <script type="text/html" id="categoryItem">
+        {{each rows v i}}
+        <li class='{{ i == 0 ? "current":"" }}'>
+            <a href="#" data-id="{{v.id}}">{{v.categoryName}}</a>
+        </li>
+        {{/each}}
+    </script>
+
+    <script type="text/html" id="renderB">
+        {{if rows.length != 0 }} {{each rows v i}}
+        <li>
+            <a href="#">
+                <img src="{{v.brandLogo}}" alt="">
+                <p>{{v.brandName}}</p>
+            </a>
+        </li>
+        {{/each}} {{else}}
+        <p>没有更多数据显示</p>
+        {{/if}}
+    </script>
+
+    <script src="./lib/mui/js/mui.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./lib/zepto/zepto.min.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/category.js"></script>
+
+</body>
+
+</html>
+
+</html.

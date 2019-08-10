@@ -1,0 +1,42 @@
+.ltm-nav {
+  padding: .63rem;
+}
+.ltm-nav li {
+  float: left;
+  width: 33.333%;
+}
+.ltm-product {
+  padding: .63rem;
+}
+.ltm-product .item {
+  width: 48%;
+  padding: 5px;
+  border: 1px #ccc solid;
+  float: left;
+  margin-bottom: .63rem;
+  border-radius: .31rem;
+  background-color: #fff;
+  text-align: center;
+}
+.ltm-product .item img {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto;
+}
+.ltm-product .item p {
+  font-size: .88rem;
+  margin-top: 0;
+  margin-bottom: .63rem;
+  color: #8f8f94;
+  height: 40px;
+}
+.ltm-product .item .new {
+  color: red;
+}
+.ltm-product .item .old {
+  color: #ccc;
+  text-decoration: line-through;
+}
+.ltm-product .item:nth-child(odd) {
+  margin-right: 10px;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button>添加</button>
+  <button>获取</button>
+  <button>删除</button>
+  <button>清空</button>
+  <script>
+
+      //浏览器 常用的数据存储方式 
+      // 1- cookie 
+      // 2- sessionStorage
+      // 3- localStorage 
+
+      // 1- cookie 
+      // 早期浏览器中一个存储数据容器
+      // cookie 容量小 4kb 记录用户信息 
+      // js操作比较麻烦  'name=zs; password=123; age=20';
+
+      // h5中新增两个本地存储容器 
+      // 2- sessionStorage
+      // 3- localStorage 
+      // 容量大 ：5M
+      // 操作方便：提供有增删改查api
+      // setItem(key, value); //设置数据
+      // getItem(key); // 获取数据
+      // removeItme(key) // 删除数据
+      // claer(); // 清空
+
+      // 2- sessionStorage
+      //  会话存储： 临时存储， 页面关闭数据就销毁；
+      // 3- localStorage 
+      //  本地存储： 永久存储，数据存储在硬盘上
+
+
+      //对localStoragte进行操作
+      var btns = document.querySelectorAll('button'); 
+
+      // 添加
+      btns[0].onclick = function () {
+        sessionStorage.setItem('name', '狗蛋');
+        sessionStorage.setItem('age', 20);
+        sessionStorage.setItem('sex', '女');
+      }
+      // 获取 
+      btns[1].onclick = function () {
+        alert(sessionStorage.getItem('name'));
+      }
+      // 删除
+      btns[2].onclick = function () {
+        sessionStorage.removeItem('age');
+      }
+
+      // 清空
+      btns[3].onclick = function () {
+        sessionStorage.clear();
+      }
+
+  </script>
+</body>
+</html>

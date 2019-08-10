@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1-历史记录，永久存储  使用 localStorage容器 
+        // 2-历史记录是多条数，用复杂类型的数据进行存储
+
+        var  obj = {
+          name: '大春哥',
+          age: 18
+        };
+
+        // 存储
+        // localStorage.setItem('dcg', obj);
+
+        // localStorage 只能存字符串类型的数据， 如果是非字符串类型的数据，会调用toString() 转成字符串，在进行存储；
+        // 解决方案 ：复杂类型的数据 在存储之前， 先转成json格式， 在存储到localStorage中
+
+        var  str = JSON.stringify(obj);
+        localStorage.setItem('dcg', str);        
+        console.log( JSON.parse( localStorage.getItem('dcg') ) ) ;        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+.cate-nav {
+  position: relative;
+  width: 90px;
+  height: 100%;
+  float: left;
+}
+.cate-nav ul li a {
+  display: block;
+  width: 90px;
+  height: 50px;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  text-align: center;
+  line-height: 50px;
+  color: #333;
+  background-color: #eee;
+}
+.cate-nav ul li.current a {
+  border-right: none;
+  background-color: #fff;
+}
+.cate-main {
+  height: 100%;
+  overflow: hidden;
+}
+.cate-main ul li {
+  float: left;
+  width: 33.33%;
+  text-align: center;
+}
+.cate-main ul li a img {
+  width: 80%;
+}

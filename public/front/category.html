@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>乐淘云购</title>
+  <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/category.css">
+</head>
+
+<body>
+  <!-- 布局容器 -->
+  <div class="lt-layout">
+    <!-- 头部 -->
+    <div class="lt-header">
+      <!-- 主页 -->
+      <a href="#" class="home">
+        <span class="fa fa-home"></span>
+      </a>
+      <!-- 标题 -->
+      <h4>乐淘云购</h4>
+      <!-- 搜索 -->
+      <a href="search.html" class="search">
+        <span class="fa fa-search"></span>
+      </a>
+    </div>
+    <!-- 主体 -->
+    <div class="lt-main">
+      <!-- 左侧导航 -->
+      <div class="cate-nav">
+        <div class="mui-scroll-wrapper">
+          <div class="mui-scroll">
+            <!--这里放置真实显示的DOM内容-->
+            <ul class="nav-list">
+              <li><a href="#">春哥馆</a></li>
+              <li class="current"><a href="#">春哥馆</a></li>
+              <li><a href="#">春哥馆</a></li>
+              <li><a href="#">春哥馆</a></li>
+              <li><a href="#">春哥馆</a></li>
+              <li><a href="#">春哥馆</a></li>
+              <li><a href="#">春哥馆</a></li>
+              <li><a href="#">春哥馆</a></li>
+              <li><a href="#">春哥馆</a></li>
+              <li><a href="#">春哥馆</a></li>
+              <li><a href="#">春哥馆</a></li>
+              <li><a href="#">春哥馆</a></li>
+              <li><a href="#">春哥馆</a></li>
+              <li><a href="#">春哥馆</a></li>
+              <li><a href="#">春哥馆</a></li>
+              <li><a href="#">春哥馆</a></li>
+              <li><a href="#">春哥馆</a></li>
+              <li><a href="#">春哥馆</a></li>
+              <li><a href="#">春哥馆</a></li>
+              <li><a href="#">春哥馆</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- 右侧主体 -->
+      <div class="cate-main">
+        <!-- <p>没有更多分类数据了</p> -->
+        <!-- <ul>
+          <li>
+            <a href="#">
+              <img src="./images/brand1.png" alt="">
+              <p>耐克</p>
+            </a>
+          </li>
+        </ul> -->
+      </div>
+    </div>
+    <!-- 底部 -->
+    <ul class="lt-footer">
+      <li>
+        <a href="index.html">
+          <span class="fa fa-home"></span>
+          <p>首页</p>
+        </a>
+      </li>
+      <li class="current">
+        <a href="category.html">
+          <span class="fa fa-bars"></span>
+          <p>分类页</p>
+        </a>
+      </li>
+      <li>
+        <a href="cart.html">
+          <span class="fa fa-shopping-cart"></span>
+          <p>购物车</p>
+        </a>
+      </li>
+      <li>
+        <a href="user.html">
+          <span class="fa fa-user"></span>
+          <p>用户中心</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 模板 -->
+  <script type="text/html" id="tmp-one">
+    {{ each rows v i }}
+    <li class={{ i==0?'current': '' }}><a href="#" data-id={{ v.id }}>{{ v.categoryName }}</a></li>
+    {{ /each }}
+  </script>
+
+  <script type="text/html" id="tmp-two">
+    {{ if rows.length == 0 }}
+      <p>没有更多分类数据了</p>
+    {{ else }}
+      <ul>
+        {{ each rows v i }}
+        <li>
+          <a href="#">
+            <img src="{{ v.brandLogo }}" alt="">
+            <p>{{ v.brandName }}</p>
+          </a>
+        </li>
+        {{ /each }}
+      </ul>
+    {{ /if }}
+  </script>
+
+  <script src="./lib/mui/js/mui.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
+  <script src="./lib/zepto/zepto.min.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="./js/category.js"></script>
+</body>
+
+</html>

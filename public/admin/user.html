@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>电商</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="lib/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+    <div class="lt">
+        <!-- 页面头部 -->
+        <header>
+            <div class="lt-title"><a href="#">黑马商城</a></div>
+            <div class="lt-head">
+                <a href="javascript:;" class="pull-left ">
+                    <span class="glyphicon glyphicon-align-justify icon_menu"></span>
+                </a>
+                <a href="javascript:;" class="pull-right">
+                    <span class="glyphicon glyphicon-log-out loginOut" data-toggle="modal" data-target="#logoutModal"></span>
+                </a>
+            </div>
+        </header>
+        <!-- 内容 -->
+        <section class="lt-content">
+            <!-- 侧边栏 -->
+            <div class="lt-nav body_bg">
+                <div class="user">
+                    <img src="images/default.png">
+                    <p>超级管理员</p>
+                </div>
+                <ul>
+                    <li>
+                        <a href="user.html" class="current">
+                            <span class="glyphicon glyphicon-user"></span>
+                            <span>用户管理</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="category">
+                            <span class="glyphicon glyphicon-th-list"></span>
+                            <span>分类管理</span>
+                        </a>
+                        <div class="child ishide">
+                            <a href="./first.html">一级分类</a>
+                            <a href="./second.html">二级分类</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="shop.html">
+                            <span class="glyphicon glyphicon-tags"></span>
+                            <span>商品管理</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 主要内容 -->
+            <div class="container-fluid lt-main">
+                <!-- 路径导航 -->
+                <ol class="breadcrumb">
+                    <li><a href="index.html">管理系统</a></li>
+                    <li class="active">首页</li>
+                </ol>
+
+                <!-- 用户数据 -->
+                <table class="table table-bordered table-hover userDate">
+                    <thead>
+                        <tr>
+                            <td>序号</td>
+                            <td>一级分类名称</td>
+                            <td>二级分类名称</td>
+                            <td>二级分类LOGO</td>
+                            <td>操作</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+
+                <!-- 分页dom结构 -->
+                <div class="text-right">
+                    <ul id="paginator"></ul>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+
+    <!-- 登录退出的模态框,  配置 data-dismiss="modal" 可以关闭模态框 -->
+    <div class="modal fade" id="logoutModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <h4 class="modal-title">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="red"><i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 修改状态的模态框,  配置 data-dismiss="modal" 可以关闭模态框 -->
+    <div class="modal fade" id="changeModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <h4 class="modal-title">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="red"><i class="glyphicon glyphicon-info-sign"></i>您确定要执行此操作吗？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="changeStatus">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 用户数据 -->
+    <script type="text/tempale" id="template">
+        {{each rows v i }}
+        <tr>
+            <td>{{ (page-1)*size + i+1 }}</td>
+            <td>{{ v.username }}</td>
+            <td>{{ v.mobile }}</td>
+            <td>{{ v.isDelete === 1 ? "正常" : "禁用" }}</td>
+            <td data-id="{{ v.id }}">
+                {{ if v.isDelete === 1 }}
+                <button class="btn btn-danger" data-toggle="modal" data-target="#changeModal">禁用</button> {{ else }}
+                <button class="btn btn-success" data-toggle="modal" data-target="#changeModal">启用</button> {{ /if }}
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+    <script src="lib/nprogress/nprogress.js"></script>
+    <!--模板插件-->
+    <script src="lib/artTemplate/template-web.js"></script>
+    <!-- 分页插件 -->
+    <script src="lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/user.js"></script>
+</body>
+</body>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>购物车</title>
+    <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/cart.css">
+</head>
+
+<body>
+    <div class="ltm-container">
+        <header>
+            <a href="javascript:history.go(-1);" class="backHome">
+                <i class="mui-icon mui-icon-back"></i>
+            </a>
+            商品详情
+            <a href="javascript:location.reload();">
+                <i class="mui-icon mui-icon-refreshempty"></i>
+            </a>
+        </header>
+        <div class="ltm-main">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <!-- 模版留坑 -->
+                    <ul class="mui-table-view">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <ul>
+                <li>
+                    <a href="./index.html">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./category.html">
+                        <i class="fa fa-bars"></i>
+                        <span>分类页</span>
+                    </a>
+                </li>
+                <li class="current">
+                    <a href="./cart.html">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>购物车</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./user.html">
+                        <i class="fa fa-user"></i>
+                        <span>用户中心</span>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+    <script type="text/html" id="temp">
+        {{each arr v i }}
+        <li class="mui-table-view-cell mui-transitioning cart_item">
+            <div class="mui-slider-right mui-disabled">
+                <a class="mui-btn mui-btn-red deleteProById" data-id="{{v.id}}" style="transform: translate(0px, 0px);">删除</a>
+            </div>
+            <div class="mui-slider-handle" style="transform: translate(0px, 0px);">
+                <!-- 左侧图片 -->
+                <div class="cart_img">
+                    <img src="{{v.pic[0].picAddr}}" alt="">
+                    <!-- <input type="checkbox" class="ck" data-price="499.1" data-num="1"> -->
+                </div>
+                <!-- 右侧商品详情 -->
+                <div class="cart_info">
+                    <p class="pro_name mui-ellipsis-2">
+                        {{v.proName}}
+                    </p>
+                    <p>
+                        <span class="price">¥{{v.price}}</span>
+                        <span class="oldPrice">¥{{v.oldPrice}}</span>
+                        <span class="mui-pull-right">{{v.num}}双</span>
+                    </p>
+                    <p>
+                        鞋码: {{v.size}}
+                    </p>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </script>
+    <script src="./lib/zepto/zepto.min.js"></script>
+    <script src="./lib/mui/js/mui.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/cart.js"></script>
+
+</body>
+
+</html>
+
+</html

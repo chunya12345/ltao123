@@ -1,0 +1,91 @@
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+img {
+  display: block;
+  width: 100%;
+}
+a {
+  text-decoration: none;
+}
+.ltm-container {
+  /* 16px */
+  position: relative;
+  min-width: 20rem;
+  max-width: 40rem;
+  height: 100%;
+  margin: 0 auto;
+  padding: 45px 0 50px 0;
+  box-sizing: border-box;
+}
+.ltm-container .ltm-main {
+  position: relative;
+  height: 100%;
+  background-color: #fff;
+}
+.ltm-container header {
+  position: absolute;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  background-color: #006699;
+  left: 0;
+  top: 0;
+  text-align: center;
+  font-size: 1.25rem;
+  color: #fff;
+}
+.ltm-container header a {
+  color: #fff;
+  width: 2.8125rem;
+  text-align: center;
+  font-size: 1.125rem;
+  position: absolute;
+}
+.ltm-container header a:first-child {
+  left: 0 !important;
+}
+.ltm-container header a:last-child {
+  left: auto;
+  right: 0 !important;
+}
+.ltm-container header a:last-child {
+  float: right;
+}
+.ltm-container footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #069;
+}
+.ltm-container footer li {
+  float: left;
+  width: 25%;
+  text-align: center;
+}
+.ltm-container footer li.current a {
+  color: #daa520;
+}
+.ltm-container footer li a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: #fff;
+  padding-top: 8px;
+  box-sizing: border-box;
+  font-size: .88rem;
+}
+.ltm-container footer li a i {
+  display: block;
+}

@@ -1,0 +1,21 @@
+1- 在移动端 （手机端） 用zepto.js 
+   在移动端 不用jquery 原因： 
+      在国内 jquery 版本 1.x.x  , 为了兼容低版本浏览器， 在移动端 不存在低版本浏览器的，jquery中大量解决低版本兼容的代码， 在移动端不使用;
+
+  zepto.js  就是一个移动版jquery
+
+
+2-BFC:
+    生成BFC情况： 
+        根元素
+        float属性不为none
+        position为absolute或fixed
+        display为inline-block, table-cell, table-caption, flex, inline-flex
+        overflow不为visible
+        
+        重点(overflow: hidden)
+
+    BFC布局规则：
+        1-属于不同BFC的两个盒子，margin 在竖直方向上不会重叠
+        2-BFC的区域不会与float 盒子重叠
+        3-计算BFC盒子的高度时，内部浮动字元素也参与高度计算， (浮动盒子会把父盒子撑开)

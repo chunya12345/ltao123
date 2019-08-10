@@ -1,0 +1,49 @@
+.cate-nav {
+  position: relative;
+  width:90px;
+  height: 100%;
+  // background-color: pink;
+  float: left;
+  ul {
+    li {
+      a {
+        display: block;
+        width: 90px;
+        height:50px;
+        border-bottom: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        text-align: center;
+        line-height: 50px;
+        color: #333;
+        background-color: #eee;
+      }
+    }
+    li.current {
+      a {
+        border-right: none;
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+.cate-main {
+  height: 100%;
+  // background-color: green;
+  overflow: hidden;
+  // 给盒子设置overFlow:hidden  成为BFC盒子
+  // BFC： 特点： BFC不会和浮动元素重叠，会自动避让 
+  ul {
+    li {
+      float: left;  
+      width:33.33%;
+      text-align: center;
+      a {
+        img {
+          width: 80%;
+        }
+        
+      }
+    }
+  }
+}
